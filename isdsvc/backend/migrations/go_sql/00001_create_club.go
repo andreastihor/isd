@@ -53,7 +53,7 @@ func up_00001(tx *sql.Tx) error {
 	// Create table
 	_, err := tx.Exec(`
 	CREATE TABLE club (
-		id              UUID PRIMARY KEY,
+		id              VARCHAR(36) PRIMARY KEY,
 		name            VARCHAR(255) NOT NULL,
 		country         VARCHAR(255) NOT NULL,
 		province        VARCHAR(255) NOT NULL,

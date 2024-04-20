@@ -23,7 +23,7 @@ const (
             address,
             email_pic,
             pic,
-            dicipline,
+            discipline,
             phone_number,
 			active
         ) VALUES (
@@ -37,7 +37,7 @@ const (
             :address,
             :email_pic,
             :pic,
-            :dicipline,
+            :discipline,
             :phone_number,
 			:active
         ) RETURNING id`
@@ -54,7 +54,7 @@ const (
             address,
             email_pic,
             pic,
-            dicipline,
+            discipline,
             phone_number,
 			active
         FROM club`
@@ -70,7 +70,7 @@ const (
             address = :address,
             email_pic = :email_pic,
             pic = :pic,
-            dicipline = :dicipline,
+            discipline = :discipline,
             phone_number = :phone_number,
 			active = :active
         WHERE
@@ -101,7 +101,7 @@ func (s *Storage) CreateClub(ctx context.Context, club *storage.Club) (string, e
 		"address":        club.Address,
 		"email_pic":      club.EmailPIC,
 		"pic":            club.Pic,
-		"dicipline":      club.Discipline,
+		"discipline":     club.Discipline,
 		"phone_number":   club.PhoneNumber,
 		"active":         club.Active,
 	}
@@ -159,7 +159,7 @@ func (s *Storage) UpdateClub(ctx context.Context, club *storage.Club) error {
 		"address":        club.Address,
 		"email_pic":      club.EmailPIC,
 		"pic":            club.Pic,
-		"dicipline":      club.Discipline,
+		"discipline":     club.Discipline,
 		"phone_number":   club.PhoneNumber,
 		"active":         club.Active,
 	}

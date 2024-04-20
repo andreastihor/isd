@@ -38,8 +38,13 @@ func main() {
 		logger.Fatalf("Failed to initialize clubStorage storage: %v", err)
 	}
 
+	organizerStorage, err := postgres.NewStorage(logger, dbConn)
+	if err != nil {
+		logger.Fatalf("Failed to initialize clubStorage storage: %v", err)
+	}
+
 	// Initialize your handler with the storage
-	handler := isd.NewHandler(clubStorage)
+	handler := isd.NewHandler(clubStorage, organizerStorage)
 
 	// Register routes
 	isd.RegisterRoutes(handler)
