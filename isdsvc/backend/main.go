@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/andreastihor/isd/isdsvc/backend/services/isd"
+	"github.com/andreastihor/isd/isdsvc/backend/storage/postgres"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -29,10 +31,18 @@ func main() {
 		log.Fatalf("error initializing logger: %v", err)
 	}
 
-	// Define routes
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, World!")
-	})
+	//initiate DB String
+	dbConn := GetDBConnString(config)
+	clubStorage, err := postgres.NewStorage(logger, dbConn)
+	if err != nil {
+		logger.Fatalf("Failed to initialize clubStorage storage: %v", err)
+	}
+
+	// Initialize your handler with the storage
+	handler := isd.NewHandler(clubStorage)
+
+	// Register routes
+	isd.RegisterRoutes(handler)
 
 	// Start server
 
@@ -85,4 +95,16 @@ func initLogger(config *viper.Viper) (*logrus.Entry, error) {
 		"service": serviceName,
 		"version": version,
 	}), nil
+}
+
+func GetDBConnString(config *viper.Viper) string {
+	host := config.GetString("database.host")
+	port := config.GetString("database.port")
+	username := config.GetString("database.user")
+	password := config.GetString("database.password")
+	databaseName := config.GetString("database.dbname")
+	sslMode := config.GetString("database.sslmode")
+	// postgres: //user:password@localhost:5432/mydb?sslmode=disable
+	return fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=%s", username, password, host, port, databaseName, sslMode)
+
 }
