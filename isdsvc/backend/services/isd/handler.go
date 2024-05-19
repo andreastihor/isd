@@ -5,6 +5,7 @@ import "github.com/andreastihor/isd/isdsvc/backend/storage"
 type Handler struct {
 	clubStore      storage.ClubStore
 	organizerStore storage.OrganizerStore
+	coachStore     storage.CoachStore
 }
 
 // NewHandler creates a new instance of Handler with the given ClubStore.

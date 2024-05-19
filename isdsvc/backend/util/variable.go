@@ -17,3 +17,10 @@ func GetBool(val OptionalBool) OptionalBool {
 
 	return OptionalBool_UNKNOWN_OptionalBool
 }
+
+type Gender string
+
+const (
+	Gender_Male   Gender = "MALE"
+	Gender_Female Gender = "FEMALE"
+)

@@ -53,6 +53,19 @@ type Organizer struct {
 	ClubActive        util.OptionalBool `json:"club_active" db:"club_active"`
 }
 
+// Coach represents coach information.
+type Coach struct {
+	ID           string            `json:"id" db:"id"`
+	Name         string            `json:"name" db:"name"`
+	DOB          string            `json:"dob" db:"dob"`
+	PhoneNumber  string            `json:"phone_number" db:"phone_number"`
+	Gender       util.Gender       `json:"gender" db:"gender"`
+	Email        string            `json:"email" db:"email"`
+	Discipline   string            `json:"discipline" db:"discipline"`
+	RegisterDate time.Time         `json:"register_date" db:"register_date"`
+	Active       util.OptionalBool `json:"active" db:"active"`
+}
+
 // Storage provides storage operations for direct
 type Storage interface {
 	GetDBConn() *sql.DB
@@ -74,4 +87,11 @@ type OrganizerStore interface {
 	GetOrganizers(ctx context.Context, organizerIDs ...string) ([]Organizer, error)
 	UpdateOrganizer(ctx context.Context, organizer *Organizer) error
 	DeleteOrganizer(ctx context.Context, organizerID string) error
+}
+
+type CoachStore interface {
+	CreateCoach(ctx context.Context, coach *Coach) (string, error)
+	GetCoaches(ctx context.Context, coachIDs ...string) ([]Coach, error)
+	UpdateCoach(ctx context.Context, coach *Coach) error
+	DeleteCoach(ctx context.Context, coachID string) error
 }
