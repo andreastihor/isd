@@ -34,4 +34,18 @@ func RegisterRoutes(handler *Handler) {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+
+	http.HandleFunc("/v1/athlete", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodPost {
+			handler.CreateAthlete(w, r)
+		} else if r.Method == http.MethodGet {
+			handler.GetAthlete(w, r)
+		} else if r.Method == http.MethodDelete {
+			handler.DeleteAthlete(w, r)
+		} else if r.Method == http.MethodPut {
+			handler.UpdateAthlete(w, r)
+		} else {
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
 }

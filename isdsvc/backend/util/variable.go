@@ -21,6 +21,6 @@ func GetBool(val OptionalBool) OptionalBool {
 type Gender string
 
 const (
-	Gender_Male   Gender = "MALE"
-	Gender_Female Gender = "FEMALE"
+	Gender_Male   Gender = "M"
+	Gender_Female Gender = "F"
 )

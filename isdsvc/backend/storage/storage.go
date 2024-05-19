@@ -66,6 +66,18 @@ type Coach struct {
 	Active       util.OptionalBool `json:"active" db:"active"`
 }
 
+type Athlete struct {
+	ID           string            `json:"id" db:"id"`
+	ClubID       string            `json:"club_id" db:"club_id"`
+	Name         string            `json:"name" db:"name"`
+	DOB          time.Time         `json:"dob" db:"dob"`
+	PhoneNumber  string            `json:"phone_number" db:"phone_number"`
+	Gender       util.Gender       `json:"gender" db:"gender"`
+	Email        string            `json:"email" db:"email"`
+	RegisterDate time.Time         `json:"register_date" db:"register_date"`
+	Active       util.OptionalBool `json:"active" db:"active"`
+}
+
 // Storage provides storage operations for direct
 type Storage interface {
 	GetDBConn() *sql.DB
@@ -94,4 +106,11 @@ type CoachStore interface {
 	GetCoaches(ctx context.Context, coachIDs ...string) ([]Coach, error)
 	UpdateCoach(ctx context.Context, coach *Coach) error
 	DeleteCoach(ctx context.Context, coachID string) error
+}
+
+type AthleteStore interface {
+	CreateAthlete(ctx context.Context, athlete *Athlete) (string, error)
+	GetAthletes(ctx context.Context, athleteIDs ...string) ([]Athlete, error)
+	UpdateAthlete(ctx context.Context, athlete *Athlete) error
+	DeleteAthlete(ctx context.Context, athleteID string) error
 }
