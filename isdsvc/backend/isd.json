@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "feb5f163-d929-448d-b183-5f055ba9396b",
+		"name": "Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34281487"
+	},
+	"item": [
+		{
+			"name": "Club",
+			"item": [
+				{
+					"name": "get club",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/club",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"club"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create club",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"club X\",\n    \"country\":\"ID\",\n    \"province\" :\"Jakarta\",\n    \"district\" : \"West Jakarta\",\n    \"logo\" :\"this is logo\",\n    \"discipline\" :\"inline skate\",\n    \"phone_number\" :\"+6287881667777\",\n    \"address\":\"this is address\",\n    \"pic\" : \"siapa aja\",\n    \"email_pic\" : \"email@gmail.com\",\n    \"establish_date\" : \"2022-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/club",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"club"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete club",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"c1569b06-7c6a-4517-abd9-8e1eb5b93b8e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/club",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"club"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update club",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"c1569b06-7c6a-4517-abd9-8e1eb5b93b8e\",\n    \"name\":\"x\",\n    \"active\": \"TRUE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/club",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"club"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "get accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"club X\",\n    \"country\":\"ID\",\n    \"province\" :\"Jakarta\",\n    \"district\" : \"West Jakarta\",\n    \"logo\" :\"this is logo\",\n    \"discipline\" :\"inline skate\",\n    \"phone_number\" :\"+6287881667777\",\n    \"address\":\"this is address\",\n    \"pic\" : \"siapa aja\",\n    \"email_pic\" : \"email@gmail.com\",\n    \"establish_date\" : \"2022-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/club",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"club"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"899b0787-7d27-4d80-9122-eefd27c42b89\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"899b0787-7d27-4d80-9122-eefd27c42b89\",\n    \"name\":\"x\",\n    \"email\":\"test\",\n    \"password\":\"aaa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/account",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"email@gmail.com\",\n    \"password\" :\"testing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/signin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"email@gmail.com\",\n    \"password\" :\"testing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/signout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizer",
+			"item": [
+				{
+					"name": "create organizer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"club X\",\n    \"position\" :\"pemimpin\",\n    \"phone_number\" :\"+6287881667777\",\n    \"email\" : \"email@gmail.com\",\n    \"register_date\" : \"2022-02-02\",\n    \"active\":\"TRUE\",\n    \"club_id\":\"341a9d26-b134-48ce-b7d4-ad89d5b9c131\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/organizer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"organizer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Organizer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/organizer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"organizer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete organizer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"53323699-5e24-413e-899d-ba6de7b6db7c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/organizer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"organizer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Organizer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"0f19842d-c9e4-4ed7-821e-50b8a689298e\",\n    \"name\":\"aaaa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/organizer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"organizer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
