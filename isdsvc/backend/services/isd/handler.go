@@ -7,13 +7,15 @@ type Handler struct {
 	organizerStore storage.OrganizerStore
 	coachStore     storage.CoachStore
 	athleteStore   storage.AthleteStore
+	accountStore   storage.AccountStore
 }
 
 // NewHandler creates a new instance of Handler with the given ClubStore.
-func NewHandler(clubStore storage.ClubStore, organizerStore storage.OrganizerStore, athleteStore storage.AthleteStore) *Handler {
+func NewHandler(clubStore storage.ClubStore, organizerStore storage.OrganizerStore, athleteStore storage.AthleteStore, accountStore storage.AccountStore) *Handler {
 	return &Handler{
 		clubStore:      clubStore,
 		organizerStore: organizerStore,
 		athleteStore:   athleteStore,
+		accountStore:   accountStore,
 	}
 }

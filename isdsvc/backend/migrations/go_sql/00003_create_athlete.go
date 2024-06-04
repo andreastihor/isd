@@ -26,13 +26,13 @@ func up_00003(tx *sql.Tx) error {
 	);	
 	`)
 	if err != nil {
-		return errors.Wrap(err, "failed to create organizer table")
+		return errors.Wrap(err, "failed to create athlete table")
 	}
 
 	// Index id and name
 	_, err = tx.Exec(`
-	CREATE INDEX idx_athlete_id ON organizer (id);
-	CREATE INDEX idx_athlete_name ON organizer (name);
+	CREATE INDEX idx_athlete_id ON athlete (id);
+	CREATE INDEX idx_athlete_name ON athlete (name);
 	`)
 	if err != nil {
 		return errors.Wrap(err, "failed to create indexes")
@@ -45,7 +45,7 @@ func down_00003(tx *sql.Tx) error {
 	// Drop table
 	_, err := tx.Exec("DROP TABLE IF EXISTS athlete;")
 	if err != nil {
-		return errors.Wrap(err, "failed to drop organizer table")
+		return errors.Wrap(err, "failed to drop athlete table")
 	}
 
 	return nil

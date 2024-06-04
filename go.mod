@@ -13,6 +13,7 @@ require (
 	github.com/spf13/viper v1.18.2
 	github.com/uptrace/opentelemetry-go-extra/otelsql v0.2.2
 	github.com/uptrace/opentelemetry-go-extra/otelsqlx v0.2.2
+	golang.org/x/crypto v0.16.0
 )
 
 require (
@@ -41,4 +42,3 @@ require (
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-

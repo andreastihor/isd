@@ -78,6 +78,25 @@ type Athlete struct {
 	Active       util.OptionalBool `json:"active" db:"active"`
 }
 
+type Account struct {
+	ID       string `json:"id" db:"id"`
+	Name     string `json:"name" db:"name"`
+	Email    string `json:"email" db:"email"`
+	Password string `json:"password" db:"password"`
+}
+
+// BearerToken represents the token information for an account.
+type BearerToken struct {
+	AccountID string    `db:"account_id"`
+	Token     string    `db:"token"`
+	Expired   time.Time `db:"expired"`
+}
+
+type VerifCode struct {
+	AccountID string `db:"account_id"`
+	Code      string `db:"code"`
+}
+
 // Storage provides storage operations for direct
 type Storage interface {
 	GetDBConn() *sql.DB
@@ -113,4 +132,19 @@ type AthleteStore interface {
 	GetAthletes(ctx context.Context, athleteIDs ...string) ([]Athlete, error)
 	UpdateAthlete(ctx context.Context, athlete *Athlete) error
 	DeleteAthlete(ctx context.Context, athleteID string) error
+}
+
+type GetAccountParams struct {
+	AccountIDs []string
+	Email      string
+}
+
+type AccountStore interface {
+	CreateAccount(ctx context.Context, account *Account) (string, error)
+	GetAccounts(ctx context.Context, accountParams GetAccountParams) ([]Account, error)
+	UpdateAccount(ctx context.Context, account *Account) error
+	DeleteAccount(ctx context.Context, accountID string) error
+	CreateToken(ctx context.Context, accountID, token string) error
+	GetTokens(ctx context.Context, accountID string) (*BearerToken, error)
+	DeleteToken(ctx context.Context, accountID string) error
 }
